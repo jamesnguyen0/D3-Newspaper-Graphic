@@ -148,7 +148,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 // Retrieve data from the CSV file and execute everything below
 d3.csv("assets/data/data.csv").then(function(healthData, err) {
   if (err) throw err;
-
+  console.log(typeof(healthData));
   // parse data
   healthData.forEach(function(data) {
     data.poverty = +data.poverty;
@@ -259,7 +259,7 @@ d3.csv("assets/data/data.csv").then(function(healthData, err) {
         .text("Obesity (%)");
 
   // updateToolTip function above csv import
-  var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+  circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
 
   // x axis labels event listener
   xLabelsGroup.selectAll("text")
